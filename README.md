@@ -1,3 +1,7 @@
+**Note** This project is essentially archived. Wyam has been rebranded and rebooted as [Statiq](https://github.com/statiqdev). New development is happening over at [Statiq.Framework](https://github.com/statiqdev/Statiq.Framework) and [Statiq.Web](https://github.com/statiqdev/Statiq.Web). If you have a cool feature request, please open them over there so I can make sure it's considered for Statiq. The issue tracker and code here will remain open in order to deal with any ongoing issues specific to Wyam.
+
+---
+
 # Wyam
 [![Join the chat at https://gitter.im/Wyamio/Wyam](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Wyamio/Wyam?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
