@@ -182,7 +182,7 @@ namespace Wyam.Razor.Tests
 <p>This is a test</p>");
                 IList<int> model = new[] { 1, 2, 3 };
                 Razor razor = new Razor()
-                    .WithModel((doc, ctx) => model); ;
+                    .WithModel((doc, ctx) => model);
 
                 // When
                 List<IDocument> results = razor.Execute(new[] { document }, context).ToList();
