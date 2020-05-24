@@ -167,7 +167,6 @@ namespace Wyam.Razor.Tests
 
                 // Then
                 results.Single().Content.ShouldBe("<p>3</p>");
-
             }
 
             [Test]
