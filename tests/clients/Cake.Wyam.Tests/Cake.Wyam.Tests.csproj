@@ -7,9 +7,9 @@
     <ProjectReference Include="..\..\..\src\core\Wyam.Testing\Wyam.Testing.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Cake.Core" Version="0.28.0" />
-    <PackageReference Include="Cake.Common" Version="0.28.0" />
-    <PackageReference Include="Cake.Testing" Version="0.28.0" />
+    <PackageReference Include="Cake.Core" Version="1.0.0" />
+    <PackageReference Include="Cake.Common" Version="1.0.0" />
+    <PackageReference Include="Cake.Testing" Version="1.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
     <PackageReference Include="NUnit" Version="3.11.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.11.2" />
