@@ -26,7 +26,6 @@ namespace Wyam.Razor
 
             // Get the current model type, replacing default of dynamic with IDocument
             string modelType = ModelDirective.GetModelType(documentNode);
-            modelType = modelType == "dynamic" ? "IDocument" : modelType;
 
             // Set the base page type and perform default model type substitution here
             ClassDeclarationIntermediateNode classDeclaration =

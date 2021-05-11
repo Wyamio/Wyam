@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Text;
 using NUnit.Framework;
 using Wyam.Common.Documents;
 using Wyam.Common.IO;
@@ -16,6 +12,7 @@ using Wyam.Testing.Documents;
 using Wyam.Testing.Execution;
 using Wyam.Testing.IO;
 using Shouldly;
+using Wyam.Common.Configuration;
 
 namespace Wyam.Razor.Tests
 {
@@ -151,6 +148,49 @@ namespace Wyam.Razor.Tests
 
                 // Then
                 results.Single().Content.ShouldBe("<p>3</p>");
+            }
+
+            [Test]
+            public void AlternateModelFromDelegate()
+            {
+                // Given
+                Engine engine = new Engine();
+                IExecutionContext context = GetExecutionContext(engine);
+                IDocument document = GetDocument("C:/Temp/temp.txt", @"@model IList<int>
+<p>@Model.Count</p>");
+                IList<int> model = new[] { 1, 2, 3 };
+                Razor razor = new Razor()
+                    .WithModel((doc, ctx) => model);
+
+                // When
+                List<IDocument> results = razor.Execute(new[] { document }, context).ToList();
+
+                // Then
+                results.Single().Content.ShouldBe("<p>3</p>");
+            }
+
+            [Test]
+            public void AlternateModelFromDelegateWithViewStartAndLayoutFile()
+            {
+                // Given
+                Engine engine = new Engine();
+                IExecutionContext context = GetExecutionContext(engine);
+                IDocument document = GetDocument(
+                    "/ViewStartAndLayout/Test.cshtml",
+                    @"@model int[]
+<p>This is a test</p>");
+                IList<int> model = new[] { 1, 2, 3 };
+                Razor razor = new Razor()
+                    .WithModel((doc, ctx) => model);
+
+                // When
+                List<IDocument> results = razor.Execute(new[] { document }, context).ToList();
+
+                // Then
+                results.Single().Content.ShouldBe(
+                    @"LAYOUT2
+<p>This is a test</p>",
+                    StringCompareShould.IgnoreLineEndings);
             }
 
             [Test]
