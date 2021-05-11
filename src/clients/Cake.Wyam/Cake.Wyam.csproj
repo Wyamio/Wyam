@@ -5,6 +5,8 @@
     <PackageTags>Cake Wyam Static StaticContent StaticSite Blog BlogEngine</PackageTags>
     <RepositoryUrl>https://github.com/Wyamio/Wyam.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <PackageIconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics/png/addin/cake-contrib-addin-medium.png</PackageIconUrl>
+    <NoWarn>$(NoWarn);NU5048</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Cake.Core" Version="1.0.0">
