@@ -9,18 +9,18 @@ namespace Wyam.Images.Operations
 {
     internal class OutputAction
     {
-        private readonly Action<Image<Rgba32>, Stream> _action;
+        private readonly Action<SixLabors.ImageSharp.Image, Stream> _action;
         private readonly Func<FilePath, FilePath> _pathModifier;
 
         public OutputAction(
-            Action<Image<Rgba32>, Stream> action,
+            Action<SixLabors.ImageSharp.Image, Stream> action,
             Func<FilePath, FilePath> pathModifier)
         {
             _action = action;
             _pathModifier = pathModifier;
         }
 
-        public void Invoke(Image<Rgba32> image, Stream stream) =>
+        public void Invoke(SixLabors.ImageSharp.Image image, Stream stream) =>
             _action?.Invoke(image, stream);
 
         public FilePath GetPath(FilePath path) =>

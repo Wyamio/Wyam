@@ -1,7 +1,6 @@
-﻿using SixLabors.ImageSharp.PixelFormats;
+﻿using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
-using SixLabors.ImageSharp.Processing.Transforms;
-using SixLabors.Primitives;
 using Wyam.Common.IO;
 
 namespace Wyam.Images.Operations
@@ -21,7 +20,7 @@ namespace Wyam.Images.Operations
             _anchor = anchor;
         }
 
-        public IImageProcessingContext<Rgba32> Apply(IImageProcessingContext<Rgba32> image)
+        public IImageProcessingContext Apply(IImageProcessingContext image)
         {
             Size? size = GetSize();
             if (size == null)

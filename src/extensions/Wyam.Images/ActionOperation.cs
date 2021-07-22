@@ -7,18 +7,18 @@ namespace Wyam.Images.Operations
 {
     internal class ActionOperation : IImageOperation
     {
-        private readonly Func<IImageProcessingContext<Rgba32>, IImageProcessingContext<Rgba32>> _operation;
+        private readonly Func<IImageProcessingContext, IImageProcessingContext> _operation;
         private readonly Func<FilePath, FilePath> _pathModifier;
 
         public ActionOperation(
-            Func<IImageProcessingContext<Rgba32>, IImageProcessingContext<Rgba32>> operation,
+            Func<IImageProcessingContext, IImageProcessingContext> operation,
             Func<FilePath, FilePath> pathModifier)
         {
             _operation = operation;
             _pathModifier = pathModifier;
         }
 
-        public IImageProcessingContext<Rgba32> Apply(IImageProcessingContext<Rgba32> image) =>
+        public IImageProcessingContext Apply(IImageProcessingContext image) =>
             _operation == null ? image : _operation(image);
 
         public FilePath GetPath(FilePath path) =>

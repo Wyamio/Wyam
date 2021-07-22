@@ -8,9 +8,7 @@ using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Formats;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
-using SixLabors.ImageSharp.Processing.Filters;
-using SixLabors.ImageSharp.Processing.Overlays;
-using SixLabors.ImageSharp.Processing.Transforms;
+using SixLabors.ImageSharp.Processing.Extensions;
 using Wyam.Common.Documents;
 using Wyam.Common.Execution;
 using Wyam.Common.IO;
@@ -132,7 +130,7 @@ namespace Wyam.Images
         /// <param name="action">An action that should write the provided image to the provided stream.</param>
         /// <param name="pathModifier">Modifies the destination path after applying the operation (for example, to set the extension).</param>
         /// <returns>The current module instance.</returns>
-        public Image OutputAs(Action<Image<Rgba32>, Stream> action, Func<FilePath, FilePath> pathModifier = null)
+        public Image OutputAs(Action<SixLabors.ImageSharp.Image, Stream> action, Func<FilePath, FilePath> pathModifier = null)
         {
             _operations.Peek().OutputActions.Add(new OutputAction(action, pathModifier));
             return this;
@@ -145,7 +143,7 @@ namespace Wyam.Images
         /// <param name="pathModifier">Modifies the destination path after applying the operation.</param>
         /// <returns>The current module instance.</returns>
         public Image Operation(
-            Func<IImageProcessingContext<Rgba32>, IImageProcessingContext<Rgba32>> operation,
+            Func<IImageProcessingContext, IImageProcessingContext> operation,
             Func<FilePath, FilePath> pathModifier = null)
         {
             _operations.Peek().Enqueue(new ActionOperation(operation, pathModifier));
@@ -332,7 +330,7 @@ namespace Wyam.Images
                         FilePath destinationPath = relativePath == null ? null : context.FileSystem.GetOutputPath(relativePath);
 
                         // Get the image
-                        Image<Rgba32> image;
+                        SixLabors.ImageSharp.Image image;
                         IImageFormat imageFormat;
                         using (Stream stream = input.GetStream())
                         {
@@ -344,7 +342,7 @@ namespace Wyam.Images
                         {
                             image.Mutate(imageContext =>
                             {
-                                IImageProcessingContext<Rgba32> workingImageContext = imageContext;
+                                IImageProcessingContext workingImageContext = imageContext;
                                 foreach (IImageOperation operation in operations.Operations)
                                 {
                                     // Apply operation

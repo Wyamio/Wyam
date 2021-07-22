@@ -6,7 +6,7 @@ namespace Wyam.Images.Operations
 {
     internal interface IImageOperation
     {
-        IImageProcessingContext<Rgba32> Apply(IImageProcessingContext<Rgba32> image);
+        IImageProcessingContext Apply(IImageProcessingContext image);
         FilePath GetPath(FilePath path);
     }
 }
