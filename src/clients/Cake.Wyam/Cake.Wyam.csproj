@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <Description>Wyam is a simple to use, highly modular, and extremely configurable static content generator. This library contains an addin for Cake for interacting with Wyam.</Description>
     <PackageTags>Cake Wyam Static StaticContent StaticSite Blog BlogEngine cake-addin</PackageTags>
     <RepositoryUrl>https://github.com/Wyamio/Wyam.git</RepositoryUrl>
@@ -9,10 +9,10 @@
     <NoWarn>$(NoWarn);NU5048</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Cake.Core" Version="1.0.0">
+    <PackageReference Include="Cake.Core" Version="2.0.0">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Cake.Common" Version="1.0.0">
+    <PackageReference Include="Cake.Common" Version="2.0.0">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>

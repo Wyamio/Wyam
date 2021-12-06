@@ -1,3 +1,11 @@
+# 2.2.13
+
+- Updated Cake.Wyam to `netcoreapp3.1` and Cake 2.0 (#28).
+
+# 2.2.10
+
+- Updated Cake.Wyam to Cake 1.0.
+
 # 2.2.9
 
 - [Fix] Updated to latest Buildalyzer (#865)
