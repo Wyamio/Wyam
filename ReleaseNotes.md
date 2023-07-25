@@ -1,3 +1,7 @@
+# 2.2.14
+
+- Target Cake.Wyam to `net6.0` and `net7.0` and reference Cake 3.0 (#29).
+
 # 2.2.13
 
 - Updated Cake.Wyam to `netcoreapp3.1` and Cake 2.0 (#28).
