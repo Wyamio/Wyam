@@ -24,7 +24,7 @@
 // - Add a blog post to Wyam.Web about the release
 // - Run a build on Wyam.Web from CI to verify final release (first make sure NuGet Gallery has updated packages by searching for "wyam")
 
-#addin "Cake.FileHelpers"
+#addin "Cake.FileHelpers&version=3.1.0"
 #addin "Octokit"
 #tool "nuget:?package=NUnit.ConsoleRunner&version=3.7.0"
 #tool "nuget:?package=NuGet.CommandLine&version=4.9.2"
